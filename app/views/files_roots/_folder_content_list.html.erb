@@ -1,0 +1,5 @@
+  <li class="nav-header"><%= locals[:title] %></li>
+<% @folders.each do |folder| %>
+  <li id="<%=folder.id%>"><%= link_to folder.name, files_root_path(folder.id), remote: true, id: folder.id, :class => "icon-folder-close" %>
+  </li>
+<% end %>

@@ -1,0 +1,51 @@
+
+<div class="container-fluid">
+  <div class="navbar">
+    <div class="navbar-inner">
+      <a class="brand" href="#"><%= @root.name.upcase %></a>
+      <ul class="nav folder_nav">
+        <li class="active">
+          <a id="nav_new_folder" href="###" current_folder_id="<%= @root.id %>">New Folder</a>
+        </li>
+        <li><a id="nav_upload_doc" href="#" current_folder_id="<%= @root.id %>">Upload Document</a></li>
+        <li><a href="#">Link</a></li>
+      </ul>
+      <ul id="folders_breadcrumb" class="breadcrumb">
+        <li><a href="#">Домой</a> <span class="divider">/</span></li>
+        <li><a href="#">Библиотека</a> <span class="divider">/</span></li>
+        <li class="active">Данные</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row-fluid">
+    <div class="span4" style="background: #C84189;">
+      <!--Sidebar content-->
+      <ul id="root_content_list" class="nav nav-list">
+        <a class="icon-refresh" href="###"> ROOT</a>
+        <%= render 'folder_content_list', :locals => {:title => "ROOT"} %>
+      </ul>    
+      
+    </div>
+    <div id="folder_content" current_folder_id="<%= @root.id %>" class="span8" style="background: white;">
+      <!--Body content-->
+      <ul id="folder_content_list" class="nav nav-list">
+        <%= render 'folder_content_list', locals: {title: @root.name.upcase} %>
+      </ul>      
+    </div>
+  </div>
+</div>
+
+
+<div id="new_folder_dialog" style="display: none;">
+  <%= render 'form' %>
+</div>
+
+  <ul class="dropdown-menu menu_over_folder" role="menu" aria-labelledby="dropdownMenu" slected_folder_id="" >
+    <li><%= link_to "Delete", files_root_path(0), method: :delete, remote: true, tabindex: "-1", :class => "menu_over_folder_delete" %></li>
+    <li><a tabindex="-1" href="#">Rename</a></li>
+    <li><a tabindex="-1" href="#"></a></li>
+    <li class="divider"></li>
+    <li><a tabindex="-1" href="#">Property</a></li>
+  </ul>
+

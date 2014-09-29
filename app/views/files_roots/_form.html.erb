@@ -1,0 +1,9 @@
+<%= form_for(@folder_new, url: add_folder_files_roots_path, remote: true) do |f| %>
+  <%= hidden_field_tag :current_folder_id, "" %>
+  <%= f.label :name %>
+  <%= f.text_field :name, required: true %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
