@@ -45,6 +45,9 @@
 <div id="new_folder_dialog" style="display: none;">
   <%= render 'form' %>
 </div>
+<div id="upload_file_dialog" style="display: none;">
+  <%= render 'upload_file' %>
+</div>
 
   <ul class="dropdown-menu menu_over_folder" role="menu" aria-labelledby="dropdownMenu" slected_folder_id="" >
     <li><%= link_to "Delete", files_root_path(0), method: :delete, remote: true, tabindex: "-1", :class => "menu_over_folder_delete" %></li>
@@ -54,6 +57,10 @@
     <li><a tabindex="-1" href="#">Property</a></li>
   </ul>
 
-<div id="upload_file_dialog" style="display: none;">
-  <%= render 'upload_file' %>
-</div>
+  <ul class="dropdown-menu menu_over_file" role="menu" aria-labelledby="dropdownMenu" slected_file_id="" >
+    <li><%= link_to "Delete", "###", method: :delete, remote: true, tabindex: "-1", :class => "menu_over_folder_delete" %></li>
+    <li><a tabindex="-1" href="#">Rename</a></li>
+    <li><a tabindex="-1" href="#"></a></li>
+    <li class="divider"></li>
+    <li><a tabindex="-1" href="#">Property</a></li>
+  </ul>

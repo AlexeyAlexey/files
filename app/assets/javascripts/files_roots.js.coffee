@@ -16,8 +16,7 @@
         
   upload_file = (current_folder_id) ->
     dialog_new_file = $("#upload_file_dialog")
-    dialog_new_file.find("input[name='current_folder_id']").val(current_folder_id)
-    
+    dialog_new_file.find("input[name='current_folder_id']").val(current_folder_id)    
     dialog_new_file.dialog 
         autoOpen: true
         resizable: true
@@ -42,23 +41,29 @@
       $("#upload_file_dialog").dialog("close");
 
     $("#folder_content_list").on "contextmenu", "li a", (eventObject) ->
-      eventObject.preventDefault()
-           
+      eventObject.preventDefault()           
       menu_over_folder_list = $(".menu_over_folder")
-      menu_over_folder_list.attr("slected_folder_id", this.id)
-      
+      menu_over_folder_list.attr("slected_folder_id", this.id)      
       menu_over_folder_list.css
+        display: "block"
+        left: eventObject.pageX + "px"
+        top:  eventObject.pageY + "px"
+
+    $('#files_list').on "contextmenu", "li a", (eventObject) ->
+      eventObject.preventDefault()           
+      menu_over_files_list = $(".menu_over_file")
+      menu_over_files_list.attr("slected_file_id", this.id)      
+      menu_over_files_list.css
         display: "block"
         left: eventObject.pageX + "px"
         top:  eventObject.pageY + "px"
         
     $(document).bind "click", () ->
       $(".menu_over_folder").hide()  
+      $(".menu_over_file").hide()
      
-    $("a.menu_over_folder_delete").bind "click", (eventObject) ->
-
+    $(".menu_over_folder a.menu_over_folder_delete").bind "click", (eventObject) ->
       $(".menu_over_folder").hide()
       this.href="/files_roots/" + $(".menu_over_folder").attr("slected_folder_id")    
   )
-
 ) jQuery
