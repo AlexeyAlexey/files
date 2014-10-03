@@ -29,19 +29,14 @@ class FileFoldersController < ApplicationController
     @folder = current_user.folders.where("id = ?", params[:current_folder_id]).first
     @files = @folder.file_folders.build   
     io_file = params[:file]
-    @files.store(io_file)
 
-    unless @files.errors.empty?
-      respond_to do |format|
-        format.js {render js: "alert('#{@files.errors.full_messages.join(',').to_s}')", status: 400}        
-      end
-      return
-    else
-      respond_to do |format|
+    respond_to do |format|
+      if @files.store(io_file)
         @files = [] << @files
         format.js {render "files_list", status: 200}
-      end
-      return
+      else
+        format.js {render js: "alert('Could not create file", status: 400}
+      end      
     end    
   end
 

@@ -26,7 +26,10 @@
       <ul id="root_content_list" class="nav nav-list">
         <a class="icon-refresh" href="###"> ROOT</a>
         <%= render 'folder_content_list', :locals => {:title => "ROOT"} %>
-      </ul>    
+      </ul> 
+      <ul>
+        <li class="icon-trash"><a href="###">Trash</a></li>
+      </ul>   
       
     </div>
     <div id="folder_content" current_folder_id="<%= @root.id %>" class="span8" style="background: white;">

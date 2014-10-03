@@ -60,24 +60,19 @@ class FilesRootsController < ApplicationController
   end
 
   def add_folder
+
     @folder = current_user.folders.where("id == ?", params[:current_folder_id]).first
     @add_folder = @folder.subfolders.new
     @add_folder.name = params[:folder][:name] 
     @add_folder.user_id = current_user.id
-    @add_folder.save
-  
-    @add_folder.create_folder
 
     respond_to do |format|
-      if @add_folder.errors.empty?
-        format.js{render 'add_to_content_folder', status: 200}
+      if @add_folder.save
+        format.js{render 'add_to_folder', status: 200}
       else
-        @add_folder.destroy
-        format.js{render js: "alert('#{@add_folder.errors.full_messages.join(',')}');", status: 200}
-      end
-      
-    end
-
+        format.js{render js: "alert('Could not create folder');", status: 400}
+      end      
+    end   
   end
 
   # PATCH/PUT /files_roots/1

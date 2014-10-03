@@ -11,11 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141001073230) do
+ActiveRecord::Schema.define(version: 20141003102705) do
 
   create_table "file_folders", force: true do |t|
     t.integer  "folder_id"
     t.string   "name"
+    t.string   "path"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -26,6 +27,18 @@ ActiveRecord::Schema.define(version: 20141001073230) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "folder_root_paths", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "folder_id"
+    t.string   "path"
+    t.string   "server"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "folder_root_paths", ["folder_id"], name: "index_folder_root_paths_on_folder_id"
+  add_index "folder_root_paths", ["user_id"], name: "index_folder_root_paths_on_user_id"
 
   create_table "folders", force: true do |t|
     t.integer  "folder_id"

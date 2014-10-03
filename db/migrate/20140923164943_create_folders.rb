@@ -4,8 +4,7 @@ class CreateFolders < ActiveRecord::Migration
       t.references :folder
       t.belongs_to :user
       t.string     :name
-      
-
+    
       t.timestamps
     end
 

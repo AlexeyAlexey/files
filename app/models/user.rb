@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
    has_many :folders, dependent: :destroy
+   has_many :folder_root_paths
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
