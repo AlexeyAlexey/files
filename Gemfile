@@ -13,6 +13,10 @@ gem 'execjs'
 gem 'therubyracer'
 gem "byebug"
 
+#https://github.com/JangoSteve/remotipart
+#Remotipart is a Ruby on Rails gem enabling AJAX file uploads with jQuery 
+gem 'remotipart', '~> 1.2'
+
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 

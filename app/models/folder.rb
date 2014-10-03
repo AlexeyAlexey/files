@@ -1,5 +1,6 @@
 class Folder < ActiveRecord::Base
   belongs_to :user
+  has_many :file_folders
 
   has_many :subfolders, class_name: "Folder", foreign_key: "folder_id", dependent: :destroy
   belongs_to :folder, class_name: "Folder"
@@ -27,12 +28,9 @@ class Folder < ActiveRecord::Base
   
   def create_folder
   	begin
-  	  byebug
   	  @root = User.current.folders.where("id == folder_id").first
       directory = File.join(USER_FILE_ROOT, @root.id.to_s, self.id.to_s)
-      byebug
-      Dir.mkdir(directory)
-  		
+      Dir.mkdir(directory)  		
   	rescue Exception => e
   	  self.errors.add(:base, 'Could not create root directory')
   	end

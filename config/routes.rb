@@ -1,4 +1,6 @@
 Files::Application.routes.draw do
+  resources :file_folders
+
   devise_for :users
   resources :files_roots do  
     collection  do

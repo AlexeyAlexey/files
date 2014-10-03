@@ -1,0 +1,10 @@
+<%= form_tag  file_folders_path, method: :post, id: "upload_file", remote: true, multipart: true do %>
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token, "data-remote" => true %>
+  <%= hidden_field_tag :current_folder_id, "", "data-remote" => true %>
+  <%= file_field_tag :file, "data-remote" => true %>
+  </br>
+  </br>
+  <div class="actions">
+    <%= submit_tag "Upload", "data-remote" => true, remote: true %>
+  </div>
+<% end %>

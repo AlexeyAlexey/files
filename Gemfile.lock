@@ -95,6 +95,7 @@ GEM
     rdoc (4.1.2)
       json (~> 1.4)
     ref (1.0.5)
+    remotipart (1.2.1)
     sass (3.2.19)
     sass-rails (4.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -151,6 +152,7 @@ DEPENDENCIES
   jquery-ui-rails
   less-rails
   rails (= 4.0.4)
+  remotipart (~> 1.2)
   sass-rails (~> 4.0.2)
   sdoc
   sqlite3

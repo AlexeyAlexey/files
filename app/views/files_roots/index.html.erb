@@ -7,7 +7,9 @@
         <li class="active">
           <a id="nav_new_folder" href="###" current_folder_id="<%= @root.id %>">New Folder</a>
         </li>
-        <li><a id="nav_upload_doc" href="#" current_folder_id="<%= @root.id %>">Upload Document</a></li>
+        <li>
+          <a id="nav_upload_file" class="upload_file_dialog" href="###" current_folder_id="<%= @root.id %>">Upload File</a>
+        </li>
         <li><a href="#">Link</a></li>
       </ul>
       <ul id="folders_breadcrumb" class="breadcrumb">
@@ -31,6 +33,9 @@
       <!--Body content-->
       <ul id="folder_content_list" class="nav nav-list">
         <%= render 'folder_content_list', locals: {title: @root.name.upcase} %>
+      </ul> 
+      <ul id="files_list" class="nav nav-list">
+        <%= render 'file_folders/files_list' %>
       </ul>      
     </div>
   </div>
@@ -49,3 +54,6 @@
     <li><a tabindex="-1" href="#">Property</a></li>
   </ul>
 
+<div id="upload_file_dialog" style="display: none;">
+  <%= render 'upload_file' %>
+</div>

@@ -1,0 +1,1 @@
+$(" #folder_content ul#files_list").append("<%= escape_javascript(render 'files_list') %>")

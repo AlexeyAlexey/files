@@ -9,9 +9,10 @@ class FilesRootsController < ApplicationController
     #@files_roots = FilesRoot.all
 
     @root = current_user.folders.where("id == folder_id").first
-
+ 
     unless @root.nil?
       @folders = @root.subfolders.where("id <> folder_id")
+      @files = @root.file_folders
       @folder_new = current_user.folders.new
     else
       respond_to do |format|
@@ -64,7 +65,7 @@ class FilesRootsController < ApplicationController
     @add_folder.name = params[:folder][:name] 
     @add_folder.user_id = current_user.id
     @add_folder.save
-    byebug
+  
     @add_folder.create_folder
 
     respond_to do |format|
@@ -72,7 +73,7 @@ class FilesRootsController < ApplicationController
         format.js{render 'add_to_content_folder', status: 200}
       else
         @add_folder.destroy
-        format.js{render js: "alert(#{@add_folder.errors.full_messages.join(',')})", status: 200}
+        format.js{render js: "alert('#{@add_folder.errors.full_messages.join(',')}');", status: 200}
       end
       
     end

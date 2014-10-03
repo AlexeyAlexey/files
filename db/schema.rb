@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140924084128) do
+ActiveRecord::Schema.define(version: 20141001073230) do
+
+  create_table "file_folders", force: true do |t|
+    t.integer  "folder_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "file_folders", ["folder_id"], name: "index_file_folders_on_folder_id"
 
   create_table "files_roots", force: true do |t|
     t.datetime "created_at"
