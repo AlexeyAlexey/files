@@ -1,0 +1,2 @@
+module DbStructuresHelper
+end

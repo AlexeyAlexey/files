@@ -7,7 +7,6 @@ class FileFolder < ActiveRecord::Base
        ActiveRecord::Base.transaction do
          self.name = io_file.original_filename
          self.save!
-         byebug
          root = User.current.folder_root_paths.first
          path = File.join(Folder::USER_FILE_ROOT, root.id.to_s, self.id.to_s)
          self.path = path

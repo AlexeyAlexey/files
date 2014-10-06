@@ -25,11 +25,9 @@ class FileFoldersController < ApplicationController
   # POST /file_folders.json
   def create
     #@file_folder = FileFolder.new(file_folder_params)
-
     @folder = current_user.folders.where("id = ?", params[:current_folder_id]).first
     @files = @folder.file_folders.build   
     io_file = params[:file]
-
     respond_to do |format|
       if @files.store(io_file)
         @files = [] << @files

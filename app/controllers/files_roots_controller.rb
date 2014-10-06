@@ -28,7 +28,7 @@ class FilesRootsController < ApplicationController
   def show
     @root = current_user.folders.find(params[:id])
     @folders = @root.subfolders
-
+    @files = @root.file_folders
     respond_to do |format|
       format.js{render 'folder_content_list', status: 200}
     end

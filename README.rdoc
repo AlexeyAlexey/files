@@ -4,3 +4,5 @@ File Explorer
 
 * Create folders
 * Upload files to folder
+
+/db_structures

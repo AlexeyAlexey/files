@@ -1,4 +1,6 @@
-<% @files.each do |file| %>
-  <li id="<%=file.id%>"><%= link_to file.name, "###", remote: true, id: file.id, :class => "icon-file" %>
-  </li>
+<% unless @files.nil? %>
+  <% @files.each do |file| %>
+    <li id="<%=file.id%>"><%= link_to file.name, "###", remote: true, id: file.id, :class => "icon-file" %>
+    </li>
+  <% end %> 
 <% end %>

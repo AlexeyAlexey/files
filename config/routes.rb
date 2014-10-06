@@ -1,4 +1,6 @@
 Files::Application.routes.draw do
+  resources :db_structures
+
   resources :file_folders
 
   devise_for :users

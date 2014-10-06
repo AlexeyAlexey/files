@@ -11,7 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141003102705) do
+ActiveRecord::Schema.define(version: 20141003143359) do
+
+  create_table "db_structures", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "file_folders", force: true do |t|
     t.integer  "folder_id"

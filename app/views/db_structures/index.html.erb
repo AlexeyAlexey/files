@@ -1,0 +1,66 @@
+<h1>Listing db_structures</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @db_structures.each do |db_structure| %>
+      <tr>
+        <td><%= link_to 'Show', db_structure %></td>
+        <td><%= link_to 'Edit', edit_db_structure_path(db_structure) %></td>
+        <td><%= link_to 'Destroy', db_structure, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Db structure', new_db_structure_path %>
+
+<div id="table_contener" class="well well-large table_structure">
+  <div class="table" style="position: relative; width:100px; height:100px; ">
+    <table class="table table-bordered">
+      <thead>
+        <tr class="">
+          <th>has_many</th><th>:table_name</th><th>dependent: :destroy</th>
+          <th>hhhh</th>
+          <th>class:</th>
+        </tr>
+        <tr>
+          <th>has_one</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+        <tr>
+          <th>belongs_to</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+        <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </tbody>
+      <caption>TABLE_NAME: NAME</caption>
+    </table>
+  </div>
+</div>
